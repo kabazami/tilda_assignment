@@ -4,11 +4,15 @@ const ROWS_COUNT = 5;
 const COLS_COUNT = 7;
 const MAX_NUMBER = 1001;
 
+$total_numbers_array = [];
+do {
+    $total_numbers_array[] = rand(0, MAX_NUMBER);
+    $total_numbers_array = array_unique($total_numbers_array);
+} while (count($total_numbers_array) < (ROWS_COUNT * COLS_COUNT));
+
 $numbers_array = [];
 for ($row = 0; $row < ROWS_COUNT; $row++) {
-    for ($col = 0; $col < COLS_COUNT; $col++) {
-        $numbers_array[$row][$col] = rand(0, MAX_NUMBER);
-    }
+    $numbers_array[$row] = array_splice($total_numbers_array, 0, COLS_COUNT);
 }
 
 $row_sums = [];
