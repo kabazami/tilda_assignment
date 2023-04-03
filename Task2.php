@@ -2,11 +2,12 @@
 
 const ROWS_COUNT = 5;
 const COLS_COUNT = 7;
-const MAX_NUMBER = 1001;
+const MIN_NUMBER = 1;
+const MAX_NUMBER = 1000;
 
 $total_numbers_array = [];
 do {
-    $total_numbers_array[] = rand(0, MAX_NUMBER);
+    $total_numbers_array[] = rand(MIN_NUMBER, MAX_NUMBER);
     $total_numbers_array = array_unique($total_numbers_array);
 } while (count($total_numbers_array) < (ROWS_COUNT * COLS_COUNT));
 
